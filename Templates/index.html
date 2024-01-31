@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <!-- ... (ditt befintliga head-innehåll) ... -->
+    <style>
+        body {
+            margin-bottom: 50px; /* Lägg till extra marginal i botten för att undvika att varningstexten överlappar innehållet */
+        }
+
+        .warning {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #ffe6e6; /* Ljus röd bakgrundsfärg för varningen */
+            text-align: center;
+            padding: 10px;
+            color: #ff0000; /* Röd textfärg */
+        }
+    </style>
+</head>
+<body>
+    <h1>Produkter utan nötter</h1>
+    <ul>
+        {% for product in products %}
+            <li>
+                <strong>{{ product.name }}</strong> - Tillverkare: {{ product.manufacturer }} - Ingredienser: {{ product.ingredients }}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <!-- Varningstext -->
+    <div class="warning">
+        Var vänlig läs alltid förpackningarna eftersom texter kan ändras.
+    </div>
+
+    <!-- Länk till att lägga till ny produkt -->
+    <a href="{{ url_for('add_product') }}">Lägg till ny produkt</a>
+</body>
+</html>

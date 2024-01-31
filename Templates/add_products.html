@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <!-- ... (ditt befintliga head-innehåll) ... -->
+</head>
+<body>
+    <h2>Lägg till produkt</h2>
+    <form method="POST" action="{{ url_for('add_product') }}" enctype="multipart/form-data">
+        <label for="name">Produktnamn:</label>
+        <input type="text" name="name" required><br>
+
+        <label for="manufacturer">Tillverkare:</label>
+        <input type="text" name="manufacturer" required><br>
+
+        <label for="ingredients">Ingredienser:</label>
+        <textarea name="ingredients" required></textarea><br>
+
+        <label for="file">Bild:</label>
+        <input type="file" name="file" accept=".png, .jpg, .jpeg, .gif"><br>
+
+        <button type="submit">Lägg till produkt</button>
+    </form>
+
+    <!-- Länk till att återgå till produkterna -->
+    <a href="{{ url_for('index') }}">Tillbaka till produkter</a>
+</body>
+</html>
